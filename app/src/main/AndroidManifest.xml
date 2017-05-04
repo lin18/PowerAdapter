@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.lin.poweradapter.example">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/app_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".single.SingleActivity"
+            android:label="SingleActivity"/>
+        <activity android:name=".multi.MultiActivity"
+            android:label="MultiActivity"/>
+        <activity android:name=".animation.AnimationActivity"
+            android:label="AnimationActivity"/>
+        <activity android:name=".stickyheaders.StickyHeadersActivity"
+            android:label="StickyHeadersActivity"/>
+        <activity android:name=".staggered.StaggeredActivity"
+            android:label="StaggeredActivity"/>
+        <activity android:name=".select.SelectActivity"
+            android:label="SelectActivity"/>
+        <activity android:name=".loadmore.LoadMoreActivity"
+            android:label="LoadMoreActivity"/>
+        <activity android:name=".headerfooter.HeaderFooterActivity"
+            android:label="HeaderFooterActivity"/>
+        <activity android:name=".headerfooter.HeaderFooterActivity2"
+            android:label="HeaderFooterActivity2"/>
+        <activity android:name=".expandable.ExpandableActivity"
+            android:label="ExpandableActivity"/>
+        <activity android:name=".dragswipe.DragSwipeActivity"
+            android:label="DragSwipeActivity"/>
+    </application>
+
+</manifest>

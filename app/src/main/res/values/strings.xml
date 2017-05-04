@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">PowerAdapter</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="text_error">加载失败\n点击重试</string>
+    <string name="text_empty">空</string>
+
+</resources>
