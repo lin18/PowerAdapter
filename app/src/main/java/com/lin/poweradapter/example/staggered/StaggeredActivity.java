@@ -3,7 +3,6 @@ package com.lin.poweradapter.example.staggered;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.OrientationHelper;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.View;
 
