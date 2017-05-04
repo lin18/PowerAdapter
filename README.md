@@ -1,0 +1,2 @@
+# PowerAdapter
+Adapter for RecyclerView
