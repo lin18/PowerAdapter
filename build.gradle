@@ -49,5 +49,3 @@ ext {
             cardview     : "com.android.support:cardview-v7:${supportVersion}"
     ]
 }
-
-//apply from: "bintrayUpload.gradle"

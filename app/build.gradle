@@ -50,4 +50,3 @@ dependencies {
 
     compile project(':library')
 }
-//apply from: '../bintrayUpload.gradle'
