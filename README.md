@@ -1,6 +1,11 @@
 # PowerAdapter
 Adapter for RecyclerView
 
+# Use
+```gradle
+compile 'com.lin:poweradapter:1.0'
+```
+
 - Single 一种Item([SingleActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/single/SingleActivity.java))
 - Multi 多种Item([MultiActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/multi/MultiActivity.java))
 - Animation 动画([AnimationActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/animation/AnimationActivity.java))
@@ -15,9 +20,9 @@ Adapter for RecyclerView
 
 # Thanks
 [AdapterDelegates](https://github.com/sockeqwe/AdapterDelegates)
-[FlexibleAdapter](https://github.com/davideas/FlexibleAdapter)
-[recyclerview-animators](https://github.com/wasabeef/recyclerview-animators)
-[Android-ItemTouchHelper-Demo](https://github.com/iPaulPro/Android-ItemTouchHelper-Demo)
+<br>[FlexibleAdapter](https://github.com/davideas/FlexibleAdapter)
+<br>[recyclerview-animators](https://github.com/wasabeef/recyclerview-animators)
+<br>[Android-ItemTouchHelper-Demo](https://github.com/iPaulPro/Android-ItemTouchHelper-Demo)
 
 # License
 ```
