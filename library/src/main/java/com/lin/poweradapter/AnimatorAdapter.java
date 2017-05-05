@@ -21,15 +21,13 @@ public abstract class AnimatorAdapter<VH extends RecyclerView.ViewHolder> extend
     @Override
     public void onBindViewHolder(VH holder, int position) {
         super.onBindViewHolder(holder, position);
-        if (isUseAnimation()) {
+        final Animator[] animators = getAnimators(holder.itemView);
+        if (animators != null) {
             int adapterPosition = holder.getAdapterPosition();
             if (!isFirstOnly || adapterPosition > mLastPosition) {
-                final Animator[] animators = getAnimators(holder.itemView);
-                if (animators != null) {
-                    for (Animator anim : animators) {
-                        anim.setDuration(mDuration).start();
-                        anim.setInterpolator(mInterpolator);
-                    }
+                for (Animator anim : animators) {
+                    anim.setDuration(mDuration).start();
+                    anim.setInterpolator(mInterpolator);
                 }
                 mLastPosition = adapterPosition;
             } else {
@@ -40,10 +38,6 @@ public abstract class AnimatorAdapter<VH extends RecyclerView.ViewHolder> extend
 
     public void setFirstOnly(boolean firstOnly) {
         isFirstOnly = firstOnly;
-    }
-
-    protected boolean isUseAnimation() {
-        return false;
     }
 
     protected Animator[] getAnimators(View view) {

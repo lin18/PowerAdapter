@@ -29,11 +29,6 @@ public class AnimationAdapter extends SingleAdapter<Analog, AnimationAdapter.Chi
     }
 
     @Override
-    protected boolean isUseAnimation() {
-        return true;
-    }
-
-    @Override
     protected Animator[] getAnimators(View view) {
         return new Animator[] {
                 ObjectAnimator.ofFloat(view, "translationY", view.getMeasuredHeight(), 0)

@@ -23,6 +23,7 @@ compile 'com.lin:poweradapter:1.0'
 <br>[FlexibleAdapter](https://github.com/davideas/FlexibleAdapter)
 <br>[recyclerview-animators](https://github.com/wasabeef/recyclerview-animators)
 <br>[Android-ItemTouchHelper-Demo](https://github.com/iPaulPro/Android-ItemTouchHelper-Demo)
+<br>[expandable-recycler-view](https://github.com/bignerdranch/expandable-recycler-view)
 
 # License
 ```
