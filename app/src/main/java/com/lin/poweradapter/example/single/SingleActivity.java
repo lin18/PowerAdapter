@@ -13,7 +13,7 @@ import com.lin.poweradapter.example.DatabaseService;
 import com.lin.poweradapter.example.RecyclerViewActivity;
 
 /**
- * Created by owp on 2017/4/27.
+ * Created by lin18 on 2017/4/27.
  */
 
 public class SingleActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {

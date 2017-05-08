@@ -9,7 +9,7 @@ import com.lin.poweradapter.example.RecyclerViewActivity;
 import com.lin.poweradapter.model.IMulti;
 
 /**
- * Created by owp on 2017/4/27.
+ * Created by lin18 on 2017/4/27.
  */
 
 public class HeaderFooterActivity2 extends RecyclerViewActivity<IMulti, HeaderFooter2Adapter> {

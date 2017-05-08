@@ -15,7 +15,7 @@ import com.lin.poweradapter.example.BaseViewHolder;
 import butterknife.BindView;
 
 /**
- * Created by owp on 2017/5/2.
+ * Created by lin18 on 2017/5/2.
  */
 
 public class StaggeredAdapter extends SingleAdapter<Staggered, StaggeredAdapter.ChildViewHolder> {

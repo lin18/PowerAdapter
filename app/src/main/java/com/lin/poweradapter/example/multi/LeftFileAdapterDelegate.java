@@ -9,7 +9,7 @@ import com.lin.poweradapter.model.IMulti;
 
 /**
  *
- * Created by owp on 2017/4/18.
+ * Created by lin18 on 2017/4/18.
  */
 
 public class LeftFileAdapterDelegate extends FileAdapterDelegate {

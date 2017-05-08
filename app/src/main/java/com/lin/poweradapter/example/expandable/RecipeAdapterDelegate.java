@@ -21,7 +21,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 /**
- * Created by owp on 2017/4/25.
+ * Created by lin18 on 2017/4/25.
  */
 
 public class RecipeAdapterDelegate extends AdapterDelegate<IExpand, PowerViewHolder> {

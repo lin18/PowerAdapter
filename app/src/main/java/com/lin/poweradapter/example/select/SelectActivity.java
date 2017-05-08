@@ -13,7 +13,7 @@ import static com.lin.poweradapter.SelectableAdapter.MODE_SINGLE;
 import static com.lin.poweradapter.SelectableAdapter.MODE_MULTI;
 
 /**
- * Created by owp on 2017/4/27.
+ * Created by lin18 on 2017/4/27.
  */
 
 public class SelectActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {

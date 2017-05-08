@@ -19,7 +19,7 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
- * Created by owp on 2017/5/2.
+ * Created by lin18 on 2017/5/2.
  */
 
 public class AnalogAdapterDelegate extends AdapterDelegate<IMulti, PowerViewHolder> {

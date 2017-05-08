@@ -11,7 +11,7 @@ import com.lin.poweradapter.example.RecyclerViewActivity;
 import jp.wasabeef.recyclerview.animators.ScaleInBottomAnimator;
 
 /**
- * Created by owp on 2017/4/27.
+ * Created by lin18 on 2017/4/27.
  */
 
 public class AnimationActivity extends RecyclerViewActivity<Analog, AnimationAdapter> {

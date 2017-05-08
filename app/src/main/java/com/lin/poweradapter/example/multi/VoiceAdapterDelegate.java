@@ -12,7 +12,7 @@ import java.util.List;
 
 
 /**
- * Created by owp on 2017/5/2.
+ * Created by lin18 on 2017/5/2.
  */
 
 public abstract class VoiceAdapterDelegate extends AdapterDelegate<Chat, PowerViewHolder> {

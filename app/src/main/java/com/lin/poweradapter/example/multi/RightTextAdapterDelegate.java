@@ -8,7 +8,7 @@ import com.lin.poweradapter.example.R;
 
 /**
  *
- * Created by owp on 2017/4/18.
+ * Created by lin18 on 2017/4/18.
  */
 
 public class RightTextAdapterDelegate extends TextAdapterDelegate {

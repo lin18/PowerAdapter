@@ -16,7 +16,7 @@ import com.timehop.stickyheadersrecyclerview.StickyRecyclerHeadersAdapter;
 import butterknife.BindView;
 
 /**
- * Created by owp on 2017/4/28.
+ * Created by lin18 on 2017/4/28.
  */
 
 public class StickyHeadersAdapter extends SingleAdapter<City, StickyHeadersAdapter.ChildViewHolder> implements StickyRecyclerHeadersAdapter<RecyclerView.ViewHolder> {

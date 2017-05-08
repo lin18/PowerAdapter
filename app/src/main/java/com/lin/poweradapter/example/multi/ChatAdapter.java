@@ -7,7 +7,7 @@ import com.lin.poweradapter.DefaultAdapterDelegate;
 import com.lin.poweradapter.MultiAdapter;
 
 /**
- * Created by owp on 2017/5/2.
+ * Created by lin18 on 2017/5/2.
  */
 
 public class ChatAdapter extends MultiAdapter<Chat, PowerViewHolder> {
