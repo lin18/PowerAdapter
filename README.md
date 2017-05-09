@@ -10,7 +10,7 @@ or
 compile ('com.lin:poweradapter:1.0@aar') {
         transitive = true
         exclude group: 'com.android.support'
-    }
+}
 ```
 
 - Single 一种Item([SingleActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/single/SingleActivity.java))
