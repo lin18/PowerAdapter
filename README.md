@@ -5,13 +5,6 @@ Adapter for RecyclerView
 ```gradle
 compile 'com.lin:poweradapter:1.0@aar'
 ```
-or
-```gradle
-compile ('com.lin:poweradapter:1.0@aar') {
-        transitive = true
-        exclude group: 'com.android.support'
-}
-```
 
 - Single 一种Item([SingleActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/single/SingleActivity.java))
 - Multi 多种Item([MultiActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/multi/MultiActivity.java))
