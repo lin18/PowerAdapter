@@ -1,7 +1,8 @@
 # PowerAdapter
 Adapter for RecyclerView
 
-# APK
+# Demo apk
+[Demo apk](https://raw.githubusercontent.com/lin18/PowerAdapter/master/app-debug.apk)
 
 # Use
 ```gradle
