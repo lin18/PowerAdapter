@@ -48,6 +48,10 @@ public abstract class MultiAdapter<T, VH extends PowerViewHolder> extends Single
     public void onBindViewHolder(VH holder, int position, List<Object> payloads) {
         if (getItemViewType(position) == LOAD_MORE) {
 
+        } else if (getItemViewType(position) == HEADER) {
+
+        } else if (getItemViewType(position) == FOOTER) {
+
         } else {
             setListener(holder, position);
             delegatesManager.onBindViewHolder(getItem(position), position, holder, payloads);
@@ -59,7 +63,7 @@ public abstract class MultiAdapter<T, VH extends PowerViewHolder> extends Single
         if (position < getDataItemCount() && getDataItemCount() > 0) {
             return delegatesManager.getItemViewType(getItem(position), position);
         }
-        return LOAD_MORE;
+        return super.getItemViewType(position);
     }
 
     @Override

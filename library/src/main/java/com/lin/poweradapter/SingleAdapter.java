@@ -344,6 +344,15 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
     }
 
     @CallSuper
+    public void update(@NonNull T elem) {
+        dataFinishedLoading();
+        final int index = items.indexOf(elem);
+        if (index > -1) {
+            set(index, elem);
+        }
+    }
+
+    @CallSuper
     public void clear() {
         dataFinishedLoading();
         items.clear();

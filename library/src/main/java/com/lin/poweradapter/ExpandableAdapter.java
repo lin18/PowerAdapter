@@ -53,7 +53,9 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
     @Override
     public void onBindVHolder(VH holder, int position) {
         super.onBindVHolder(holder, position);
-        if (getItemViewType(position) != LOAD_MORE) {
+        if (getItemViewType(position) != LOAD_MORE
+                && getItemViewType(position) != HEADER
+                && getItemViewType(position) != FOOTER) {
             bind(holder, position);
         }
     }
@@ -61,6 +63,10 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
     @Override
     public void onBindViewHolder(VH holder, int position, List<Object> payloads) {
         if (getItemViewType(position) == LOAD_MORE) {
+
+        } else if (getItemViewType(position) == HEADER) {
+
+        } else if (getItemViewType(position) == FOOTER) {
 
         } else {
             bind(holder, position);
