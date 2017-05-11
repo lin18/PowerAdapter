@@ -1,6 +1,8 @@
 # PowerAdapter
 Adapter for RecyclerView
 
+# APK
+
 # Use
 ```gradle
 compile 'com.lin:poweradapter:1.1@aar'
