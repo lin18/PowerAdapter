@@ -60,7 +60,7 @@ public abstract class MultiAdapter<T, VH extends PowerViewHolder> extends Single
 
     @Override
     public int getItemViewType(int position) {
-        if (position < getDataItemCount() && getDataItemCount() > 0) {
+        if (getDataItemCount() > 0 && position < getItemCountContainHeader()) {
             return delegatesManager.getItemViewType(getItem(position), position);
         }
         return super.getItemViewType(position);
