@@ -323,6 +323,13 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
     }
 
     @CallSuper
+    public void addData(@IntRange(from = 0) int position, @NonNull List<T> data) {
+        dataFinishedLoading();
+        items.addAll(position, data);
+        notifyItemRangeInserted(position, data.size());
+    }
+
+    @CallSuper
     public void add(@NonNull T elem) {
         dataFinishedLoading();
         items.add(elem);

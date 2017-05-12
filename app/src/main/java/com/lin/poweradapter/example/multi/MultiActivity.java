@@ -1,6 +1,8 @@
 package com.lin.poweradapter.example.multi;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.AppCompatEditText;
@@ -27,6 +29,8 @@ public class MultiActivity extends RecyclerViewActivity<IMulti, ChatAdapter> {
     AppCompatEditText etReply;
 
     private boolean isFromMyself;
+
+    private Handler handler = new Handler(Looper.getMainLooper());
 
     @Override
     public int getLayoutResource() {
@@ -79,5 +83,11 @@ public class MultiActivity extends RecyclerViewActivity<IMulti, ChatAdapter> {
                 break;
         }
         isFromMyself = !isFromMyself;
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                recyclerView.getLayoutManager().scrollToPosition(adapter.getItemCount() - 1);
+            }
+        }, 100);
     }
 }
