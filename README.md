@@ -3,6 +3,8 @@ Adapter for RecyclerView
 
 # Demo apk
 [Demo apk](https://raw.githubusercontent.com/lin18/PowerAdapter/master/app-debug.apk)
+<br>
+<br>
 <br>![](https://github.com/lin18/PowerAdapter/blob/master/screenshots/demo.gif?raw=true)
 
 # Use
