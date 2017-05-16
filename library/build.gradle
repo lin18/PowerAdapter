@@ -37,6 +37,5 @@ dependencies {
     compile supportDependencies.recyclerview
 }
 
-apply from: 'bintray.gradle'
-//apply from: 'bintrayUpload.gradle'
+//apply from: 'bintray.gradle'
 //apply from: "https://raw.githubusercontent.com/xiaopansky/android-library-publish-to-jcenter/master/bintrayUpload.gradle"
