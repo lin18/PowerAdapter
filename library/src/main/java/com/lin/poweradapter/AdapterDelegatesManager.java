@@ -211,16 +211,7 @@ public class AdapterDelegatesManager<T, VH extends PowerViewHolder> {
 
   @Nullable
   public AdapterDelegate<T, VH> getDelegateForViewType(int viewType) {
-    AdapterDelegate<T, VH> delegate = delegates.get(viewType);
-    if (delegate == null) {
-      if (fallbackDelegate == null) {
-        return null;
-      } else {
-        return (AdapterDelegate<T, VH>) fallbackDelegate;
-      }
-    }
-
-    return delegate;
+    return delegates.get(viewType, (AdapterDelegate<T, VH>) fallbackDelegate);
   }
 
   public AdapterDelegate<T, VH> getDelegateForViewType(@NonNull T items, int position) {

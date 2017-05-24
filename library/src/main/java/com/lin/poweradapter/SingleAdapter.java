@@ -351,12 +351,30 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
     }
 
     @CallSuper
-    public void update(@NonNull T elem) {
+    public int update(@NonNull T elem) {
         dataFinishedLoading();
         final int index = items.indexOf(elem);
         if (index > -1) {
             set(index, elem);
         }
+        return index;
+    }
+
+    @CallSuper
+    public void updateAndSwap(@NonNull T elem, @IntRange(from = 0) int to) {
+        int index = update(elem);
+        if (index > -1) {
+            Collections.swap(items, index, to);
+            notifyItemChanged(to);
+        }
+    }
+
+    @CallSuper
+    public void swap(@IntRange(from = 0) int from, @IntRange(from = 0) int to) {
+        dataFinishedLoading();
+        Collections.swap(items, from, to);
+        notifyItemChanged(from);
+        notifyItemChanged(to);
     }
 
     @CallSuper
@@ -368,14 +386,14 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
 
     @CallSuper
     @Override
-    public void onItemDismiss(int position) {
+    public void onItemDismiss(@IntRange(from = 0) int position) {
         items.remove(position);
         notifyItemRemoved(position);
     }
 
     @CallSuper
     @Override
-    public boolean onItemMove(int fromPosition, int toPosition) {
+    public boolean onItemMove(@IntRange(from = 0) int fromPosition, @IntRange(from = 0) int toPosition) {
         Collections.swap(items, fromPosition, toPosition);
         notifyItemMoved(fromPosition, toPosition);
         return true;

@@ -13,7 +13,7 @@ public abstract class AdapterDelegate<T, VH extends PowerViewHolder> {
   protected abstract boolean isForViewType(@NonNull T item, int position);
 
   @NonNull
-  abstract protected VH onCreateViewHolder(ViewGroup parent);
+  abstract protected VH onCreateViewHolder(@NonNull ViewGroup parent);
 
   protected abstract void onBindViewHolder(@NonNull T item, int position,
                                            @NonNull VH holder, @NonNull List<Object> payloads);
