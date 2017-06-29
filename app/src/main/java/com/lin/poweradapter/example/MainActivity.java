@@ -8,10 +8,12 @@ import android.view.View;
 import com.lin.poweradapter.example.animation.AnimationActivity;
 import com.lin.poweradapter.example.dragswipe.DragSwipeActivity;
 import com.lin.poweradapter.example.expandable.ExpandableActivity;
+import com.lin.poweradapter.example.flow.FlowActivity;
 import com.lin.poweradapter.example.headerfooter.HeaderFooterActivity;
 import com.lin.poweradapter.example.headerfooter.HeaderFooterActivity2;
 import com.lin.poweradapter.example.loadmore.LoadMoreActivity;
 import com.lin.poweradapter.example.multi.MultiActivity;
+import com.lin.poweradapter.example.select.MultiSelectActivity;
 import com.lin.poweradapter.example.select.SelectActivity;
 import com.lin.poweradapter.example.single.SingleActivity;
 import com.lin.poweradapter.example.staggered.StaggeredActivity;
@@ -29,11 +31,13 @@ public class MainActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {
             StickyHeadersActivity.class.getSimpleName(),
             StaggeredActivity.class.getSimpleName(),
             SelectActivity.class.getSimpleName(),
+            MultiSelectActivity.class.getSimpleName(),
             LoadMoreActivity.class.getSimpleName(),
             HeaderFooterActivity.class.getSimpleName(),
             HeaderFooterActivity2.class.getSimpleName(),
             ExpandableActivity.class.getSimpleName(),
-            DragSwipeActivity.class.getSimpleName()
+            DragSwipeActivity.class.getSimpleName(),
+            FlowActivity.class.getSimpleName()
     };
 
     private Class[] mActivities = new Class[]{
@@ -43,11 +47,13 @@ public class MainActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {
             StickyHeadersActivity.class,
             StaggeredActivity.class,
             SelectActivity.class,
+            MultiSelectActivity.class,
             LoadMoreActivity.class,
             HeaderFooterActivity.class,
             HeaderFooterActivity2.class,
             ExpandableActivity.class,
-            DragSwipeActivity.class
+            DragSwipeActivity.class,
+            FlowActivity.class
     };
 
     @Override

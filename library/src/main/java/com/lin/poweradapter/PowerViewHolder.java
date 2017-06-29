@@ -16,7 +16,7 @@ public class PowerViewHolder extends RecyclerView.ViewHolder {
     View contentView;
 
     public PowerViewHolder(@NonNull ViewGroup parent, @LayoutRes int layoutResId) {
-        this(LayoutInflater.from(parent.getContext()).inflate(layoutResId, parent, false));
+        this(inflate(parent, layoutResId));
     }
 
     public PowerViewHolder(View itemView) {
@@ -29,6 +29,10 @@ public class PowerViewHolder extends RecyclerView.ViewHolder {
 
     public final View getContentView() {
         return contentView != null ? contentView : itemView;
+    }
+
+    public static View inflate(@NonNull ViewGroup parent, @LayoutRes int layoutResId) {
+        return LayoutInflater.from(parent.getContext()).inflate(layoutResId, parent, false);
     }
 
 }

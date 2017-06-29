@@ -33,6 +33,8 @@
             android:label="StaggeredActivity"/>
         <activity android:name=".select.SelectActivity"
             android:label="SelectActivity"/>
+        <activity android:name=".select.MultiSelectActivity"
+            android:label="MultiSelectActivity"/>
         <activity android:name=".loadmore.LoadMoreActivity"
             android:label="LoadMoreActivity"/>
         <activity android:name=".headerfooter.HeaderFooterActivity"
@@ -43,6 +45,8 @@
             android:label="ExpandableActivity"/>
         <activity android:name=".dragswipe.DragSwipeActivity"
             android:label="DragSwipeActivity"/>
+        <activity android:name=".flow.FlowActivity"
+            android:label="FlowActivity"/>
     </application>
 
 </manifest>

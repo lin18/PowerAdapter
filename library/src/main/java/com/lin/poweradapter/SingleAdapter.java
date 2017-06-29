@@ -4,6 +4,7 @@ import android.support.annotation.CallSuper;
 import android.support.annotation.IntRange;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.UiThread;
 import android.support.v4.view.MotionEventCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
@@ -282,6 +283,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         return items.get(showHeader ? position - 1 : position);
     }
 
+    @UiThread
     @CallSuper
     public void setItems(@NonNull List<T> items) {
         dataFinishedLoading();
@@ -289,6 +291,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         notifyDataSetChanged();
     }
 
+    @UiThread
     @CallSuper
     public void remove(@NonNull T elem) {
         dataFinishedLoading();
@@ -299,6 +302,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         }
     }
 
+    @UiThread
     @CallSuper
     public void remove(@IntRange(from = 0) int position) {
         dataFinishedLoading();
@@ -306,6 +310,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         notifyItemRemoved(position);
     }
 
+    @UiThread
     @CallSuper
     public void replaceAll(@NonNull List<T> elem) {
         dataFinishedLoading();
@@ -314,6 +319,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         notifyDataSetChanged();
     }
 
+    @UiThread
     @CallSuper
     public void addAll(@NonNull List<T> elem) {
         dataFinishedLoading();
@@ -322,44 +328,49 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         notifyItemRangeInserted(size, items.size());
     }
 
+    @UiThread
     @CallSuper
-    public void addData(@IntRange(from = 0) int position, @NonNull List<T> data) {
+    public void addItems(@IntRange(from = 0) int position, @NonNull List<T> data) {
         dataFinishedLoading();
         items.addAll(position, data);
         notifyItemRangeInserted(position, data.size());
     }
 
+    @UiThread
     @CallSuper
-    public void add(@NonNull T elem) {
+    public void addItem(@NonNull T elem) {
         dataFinishedLoading();
         items.add(elem);
         notifyItemInserted(items.size());
     }
 
     @CallSuper
-    public void add(@IntRange(from = 0) int position, @NonNull T elem) {
+    public void addItem(@IntRange(from = 0) int position, @NonNull T elem) {
         dataFinishedLoading();
         items.add(position, elem);
         notifyItemInserted(position);
     }
 
+    @UiThread
     @CallSuper
-    public void set(@IntRange(from = 0) int position, @NonNull T elem) {
+    public void setItem(@IntRange(from = 0) int position, @NonNull T elem) {
         dataFinishedLoading();
         items.set(position, elem);
         notifyItemChanged(position);
     }
 
+    @UiThread
     @CallSuper
     public int update(@NonNull T elem) {
         dataFinishedLoading();
         final int index = items.indexOf(elem);
         if (index > -1) {
-            set(index, elem);
+            setItem(index, elem);
         }
         return index;
     }
 
+    @UiThread
     @CallSuper
     public void updateAndSwap(@NonNull T elem, @IntRange(from = 0) int to) {
         int index = update(elem);
@@ -369,6 +380,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         }
     }
 
+    @UiThread
     @CallSuper
     public void swap(@IntRange(from = 0) int from, @IntRange(from = 0) int to) {
         dataFinishedLoading();
@@ -377,6 +389,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         notifyItemChanged(to);
     }
 
+    @UiThread
     @CallSuper
     public void clear() {
         dataFinishedLoading();
@@ -384,6 +397,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         notifyDataSetChanged();
     }
 
+    @UiThread
     @CallSuper
     @Override
     public void onItemDismiss(@IntRange(from = 0) int position) {
@@ -391,6 +405,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         notifyItemRemoved(position);
     }
 
+    @UiThread
     @CallSuper
     @Override
     public boolean onItemMove(@IntRange(from = 0) int fromPosition, @IntRange(from = 0) int toPosition) {

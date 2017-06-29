@@ -6,6 +6,7 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.widget.AppCompatEditText;
+import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageButton;
@@ -41,7 +42,9 @@ public class MultiActivity extends RecyclerViewActivity<IMulti, ChatAdapter> {
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         super.onCreate(savedInstanceState);
-        configure(new SpaceItemDecoration(this, -1, 10));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        layoutManager.setStackFromEnd(true);
+        configure(layoutManager, new SpaceItemDecoration(this, -1, 10));
     }
 
     @NonNull
@@ -56,20 +59,20 @@ public class MultiActivity extends RecyclerViewActivity<IMulti, ChatAdapter> {
             case R.id.file:
                 FileChat file = new FileChat();
                 file.isFromMyself = isFromMyself;
-                adapter.add(file);
+                adapter.addItem(file);
                 break;
 
             case R.id.photo:
                 PhotoChat photo = new PhotoChat();
                 photo.isFromMyself = isFromMyself;
                 photo.resId = R.drawable.ic_insert_photo;
-                adapter.add(photo);
+                adapter.addItem(photo);
                 break;
 
             case R.id.voice:
                 VoiceChat voice = new VoiceChat();
                 voice.isFromMyself = isFromMyself;
-                adapter.add(voice);
+                adapter.addItem(voice);
                 break;
 
             case R.id.iv_send:
@@ -78,7 +81,7 @@ public class MultiActivity extends RecyclerViewActivity<IMulti, ChatAdapter> {
                 TextChat text = new TextChat();
                 text.isFromMyself = isFromMyself;
                 text.message = msg;
-                adapter.add(text);
+                adapter.addItem(text);
                 etReply.setText(null);
                 break;
         }
@@ -89,5 +92,15 @@ public class MultiActivity extends RecyclerViewActivity<IMulti, ChatAdapter> {
                 recyclerView.getLayoutManager().scrollToPosition(adapter.getItemCount() - 1);
             }
         }, 100);
+    }
+
+    @Override
+    public void onItemClick(View v, int position) {
+        super.onItemClick(v, position);
+    }
+
+    @Override
+    public boolean onItemLongClick(View v, int position) {
+        return super.onItemLongClick(v, position);
     }
 }
