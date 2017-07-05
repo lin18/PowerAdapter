@@ -21,7 +21,22 @@ public class SingleActivity extends RecyclerViewActivity<Analog, AnalogAdapter> 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        configure(new GridLayoutManager(this, 2), new SpaceItemDecoration(this, -1, 10, 10));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 3);
+        gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                /* emulating https://material-design.storage.googleapis.com/publish/material_v_4/material_ext_publish/0B6Okdz75tqQsck9lUkgxNVZza1U/style_imagery_integration_scale1.png */
+                switch (position % 6) {
+                    case 5:
+                        return 3;
+                    case 3:
+                        return 2;
+                    default:
+                        return 1;
+                }
+            }
+        });
+        configure(gridLayoutManager, new SpaceItemDecoration(this, -1, 10, 10));
         adapter.setItems(DatabaseService.getSampleData(300));
         final RecyclerView.RecycledViewPool viewPool = new RecyclerView.RecycledViewPool();
         recyclerView.setRecycledViewPool(viewPool);

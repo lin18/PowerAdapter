@@ -7,9 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
-        <item name="android:windowAllowEnterTransitionOverlap" tools:targetApi="21">true</item>
-        <item name="android:windowAllowReturnTransitionOverlap" tools:targetApi="21">true</item>
-        <item name="android:windowSharedElementsUseOverlay" tools:targetApi="21">false</item>
+        <!--<item name="android:windowAllowEnterTransitionOverlap" tools:targetApi="21">true</item>-->
+        <!--<item name="android:windowAllowReturnTransitionOverlap" tools:targetApi="21">true</item>-->
+        <!--<item name="android:windowSharedElementsUseOverlay" tools:targetApi="21">false</item>-->
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
