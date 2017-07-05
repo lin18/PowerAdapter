@@ -8,7 +8,6 @@ import android.view.View;
 import com.lin.poweradapter.example.animation.AnimationActivity;
 import com.lin.poweradapter.example.dragswipe.DragSwipeActivity;
 import com.lin.poweradapter.example.expandable.ExpandableActivity;
-import com.lin.poweradapter.example.flow.FlowActivity;
 import com.lin.poweradapter.example.headerfooter.HeaderFooterActivity;
 import com.lin.poweradapter.example.headerfooter.HeaderFooterActivity2;
 import com.lin.poweradapter.example.loadmore.LoadMoreActivity;
@@ -36,8 +35,7 @@ public class MainActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {
             HeaderFooterActivity.class.getSimpleName(),
             HeaderFooterActivity2.class.getSimpleName(),
             ExpandableActivity.class.getSimpleName(),
-            DragSwipeActivity.class.getSimpleName(),
-            FlowActivity.class.getSimpleName()
+            DragSwipeActivity.class.getSimpleName()
     };
 
     private Class[] mActivities = new Class[]{
@@ -52,8 +50,7 @@ public class MainActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {
             HeaderFooterActivity.class,
             HeaderFooterActivity2.class,
             ExpandableActivity.class,
-            DragSwipeActivity.class,
-            FlowActivity.class
+            DragSwipeActivity.class
     };
 
     @Override

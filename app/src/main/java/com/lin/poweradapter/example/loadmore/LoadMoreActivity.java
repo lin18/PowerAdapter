@@ -9,7 +9,6 @@ import android.view.View;
 
 import com.lin.poweradapter.EndlessRecyclerViewScrollListener;
 import com.lin.poweradapter.example.Analog;
-import com.lin.poweradapter.example.AnalogAdapter;
 import com.lin.poweradapter.example.DatabaseService;
 import com.lin.poweradapter.example.RecyclerViewActivity;
 
@@ -17,7 +16,7 @@ import com.lin.poweradapter.example.RecyclerViewActivity;
  * Created by lin18 on 2017/4/27.
  */
 
-public class LoadMoreActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {
+public class LoadMoreActivity extends RecyclerViewActivity<Analog, LoadMoreAdapter> {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +39,8 @@ public class LoadMoreActivity extends RecyclerViewActivity<Analog, AnalogAdapter
 
     @NonNull
     @Override
-    protected AnalogAdapter createAdapter() {
-        return new AnalogAdapter(this);
+    protected LoadMoreAdapter createAdapter() {
+        return new LoadMoreAdapter(this);
     }
 
     @Override
