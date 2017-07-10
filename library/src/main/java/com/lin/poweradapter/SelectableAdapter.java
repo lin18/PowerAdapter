@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.annotation.IntDef;
 import android.support.annotation.IntRange;
+import android.support.annotation.UiThread;
 import android.support.v7.widget.RecyclerView;
 
 import java.lang.annotation.Retention;
@@ -41,6 +42,7 @@ public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> exte
         mMode = MODE_IDLE;
     }
 
+    @UiThread
     public void setMode(@Mode int mode) {
         if (mMode == MODE_SINGLE && mode == MODE_IDLE)
             clearSelection();
@@ -52,12 +54,15 @@ public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> exte
         return mMode;
     }
 
+    @UiThread
     public boolean isSelected(@IntRange(from = 0) int position) {
         return mSelectedPositions.contains(position);
     }
 
+    @UiThread
     public abstract boolean isSelectable(@IntRange(from = 0) int position);
 
+    @UiThread
     public void toggleSelection(@IntRange(from = 0) int position) {
         if (position < 0) return;
         if (mMode == MODE_SINGLE)
@@ -76,14 +81,17 @@ public abstract class SelectableAdapter<VH extends RecyclerView.ViewHolder> exte
         return mSelectedPositions.add(position);
     }
 
+    @UiThread
     public final boolean removeSelection(@IntRange(from = 0) int position) {
         return mSelectedPositions.remove(position);
     }
 
+    @UiThread
     public final boolean addSelection(@IntRange(from = 0) int position) {
         return isSelectable(position) && mSelectedPositions.add(position);
     }
 
+    @UiThread
     public void selectAll(Integer... viewTypes) {
         List<Integer> viewTypesToSelect = Arrays.asList(viewTypes);
         int positionStart = 0, itemCount = 0;

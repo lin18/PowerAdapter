@@ -344,6 +344,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         notifyItemInserted(items.size());
     }
 
+    @UiThread
     @CallSuper
     public void addItem(@IntRange(from = 0) int position, @NonNull T elem) {
         dataFinishedLoading();
