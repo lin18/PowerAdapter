@@ -10,6 +10,7 @@ import com.lin.poweradapter.example.dragswipe.DragSwipeActivity;
 import com.lin.poweradapter.example.expandable.ExpandableActivity;
 import com.lin.poweradapter.example.headerfooter.HeaderFooterActivity;
 import com.lin.poweradapter.example.headerfooter.HeaderFooterActivity2;
+import com.lin.poweradapter.example.loadmore.HLoadMoreActivity;
 import com.lin.poweradapter.example.loadmore.LoadMoreActivity;
 import com.lin.poweradapter.example.multi.MultiActivity;
 import com.lin.poweradapter.example.select.MultiSelectActivity;
@@ -32,6 +33,7 @@ public class MainActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {
             SelectActivity.class.getSimpleName(),
             MultiSelectActivity.class.getSimpleName(),
             LoadMoreActivity.class.getSimpleName(),
+            HLoadMoreActivity.class.getSimpleName(),
             HeaderFooterActivity.class.getSimpleName(),
             HeaderFooterActivity2.class.getSimpleName(),
             ExpandableActivity.class.getSimpleName(),
@@ -47,6 +49,7 @@ public class MainActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {
             SelectActivity.class,
             MultiSelectActivity.class,
             LoadMoreActivity.class,
+            HLoadMoreActivity.class,
             HeaderFooterActivity.class,
             HeaderFooterActivity2.class,
             ExpandableActivity.class,

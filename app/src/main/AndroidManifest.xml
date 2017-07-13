@@ -37,6 +37,8 @@
             android:label="MultiSelectActivity"/>
         <activity android:name=".loadmore.LoadMoreActivity"
             android:label="LoadMoreActivity"/>
+        <activity android:name=".loadmore.HLoadMoreActivity"
+            android:label="HLoadMoreActivity"/>
         <activity android:name=".headerfooter.HeaderFooterActivity"
             android:label="HeaderFooterActivity"/>
         <activity android:name=".headerfooter.HeaderFooterActivity2"
