@@ -22,7 +22,7 @@ public class ChatAdapter extends MultiAdapter<Chat, PowerViewHolder> {
         delegatesManager.addDelegate(new RightPhotoAdapterDelegate());
         delegatesManager.addDelegate(new LeftVoiceAdapterDelegate());
         delegatesManager.addDelegate(new RightVoiceAdapterDelegate());
-        delegatesManager.setFallbackDelegate(new DefaultAdapterDelegate());
+        delegatesManager.setFallbackDelegate(new DefaultAdapterDelegate<Chat>());
     }
 
 }

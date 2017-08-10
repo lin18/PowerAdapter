@@ -15,7 +15,7 @@ public class AdapterDelegatesManager<T, VH extends PowerViewHolder> {
   private static final List<Object> PAYLOADS_EMPTY_LIST = Collections.emptyList();
 
   protected SparseArrayCompat<AdapterDelegate<T, VH>> delegates = new SparseArrayCompat();
-  protected AdapterDelegate<Object, PowerViewHolder> fallbackDelegate;
+  protected AdapterDelegate<T, PowerViewHolder> fallbackDelegate;
 
   public AdapterDelegatesManager<T, VH> addDelegate(@NonNull AdapterDelegate<T, VH> delegate) {
     // algorithm could be improved since there could be holes,
@@ -193,7 +193,7 @@ public class AdapterDelegatesManager<T, VH extends PowerViewHolder> {
   }
 
   public void setFallbackDelegate(
-      @Nullable AdapterDelegate<Object, PowerViewHolder> fallbackDelegate) {
+      @Nullable AdapterDelegate<T, PowerViewHolder> fallbackDelegate) {
     this.fallbackDelegate = fallbackDelegate;
   }
 
@@ -231,7 +231,7 @@ public class AdapterDelegatesManager<T, VH extends PowerViewHolder> {
   }
 
   @Nullable
-  public AdapterDelegate<Object, PowerViewHolder> getFallbackDelegate() {
+  public AdapterDelegate<T, PowerViewHolder> getFallbackDelegate() {
     return fallbackDelegate;
   }
 }

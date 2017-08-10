@@ -9,10 +9,8 @@ import android.support.v7.widget.AppCompatEditText;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.ImageButton;
 
 import com.lin.poweradapter.SpaceItemDecoration;
-import com.lin.poweradapter.example.BaseActivity;
 import com.lin.poweradapter.example.R;
 import com.lin.poweradapter.example.RecyclerViewActivity;
 import com.lin.poweradapter.model.IMulti;
