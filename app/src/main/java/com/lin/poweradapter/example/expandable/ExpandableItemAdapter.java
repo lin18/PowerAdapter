@@ -16,7 +16,7 @@ public class ExpandableItemAdapter extends ExpandableAdapter<IExpand, Recipe, In
         super(listener);
         delegatesManager.addDelegate(new IngredientAdapterDelegate());
         delegatesManager.addDelegate(new RecipeAdapterDelegate());
-        delegatesManager.setFallbackDelegate(new DefaultAdapterDelegate());
+        delegatesManager.setFallbackDelegate(new DefaultAdapterDelegate<IExpand>());
     }
 
 }
