@@ -30,11 +30,13 @@ public class LoadMoreActivity extends RecyclerViewActivity<Analog, LoadMoreAdapt
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
                 count++;
-                if (count < 4) {
+                if (count < 6) {
+                    adapter.setLoadMore(false);
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
                             adapter.addAll(DatabaseService.getSampleData(30));
+                            adapter.setLoadMore(true);
                         }
                     }, 2000);
                 } else {
@@ -60,7 +62,7 @@ public class LoadMoreActivity extends RecyclerViewActivity<Analog, LoadMoreAdapt
             @Override
             public void run() {
                 listener.resetState();
-                adapter.replaceAll(DatabaseService.getSampleData(30));
+                adapter.setItems(DatabaseService.getSampleData(30));
                 adapter.setLoadMore(true);
                 setRefreshing(false);
             }
