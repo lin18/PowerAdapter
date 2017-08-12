@@ -1,6 +1,7 @@
 package com.lin.poweradapter;
 
 import android.support.annotation.NonNull;
+import android.support.v4.widget.Space;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -21,7 +22,7 @@ public class DefaultAdapterDelegate<T> extends AdapterDelegate<T, PowerViewHolde
     @NonNull
     @Override
     protected PowerViewHolder onCreateViewHolder(ViewGroup parent) {
-        return new PowerViewHolder(new View(parent.getContext()));
+        return new PowerViewHolder(new Space(parent.getContext()));
     }
 
     @Override

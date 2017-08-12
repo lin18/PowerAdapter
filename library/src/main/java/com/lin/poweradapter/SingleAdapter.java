@@ -258,6 +258,10 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         return items == null ? 0 : items.size();
     }
 
+    public boolean isEmpty() {
+        return getItemCount() == 0;
+    }
+
     @Override
     public int getItemCount() {
         int extra = 0;

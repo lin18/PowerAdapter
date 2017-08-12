@@ -18,22 +18,32 @@ import com.lin.poweradapter.example.RecyclerViewActivity;
 
 public class LoadMoreActivity extends RecyclerViewActivity<Analog, LoadMoreAdapter> {
 
+    int count;
+
+    EndlessRecyclerViewScrollListener listener;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         configure();
-        adapter.setItems(DatabaseService.getSampleData(40));
-        recyclerView.addOnScrollListener(new EndlessRecyclerViewScrollListener((LinearLayoutManager) recyclerView.getLayoutManager(), adapter) {
+        listener = new EndlessRecyclerViewScrollListener((LinearLayoutManager) recyclerView.getLayoutManager(), adapter) {
             @Override
             public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        adapter.addAll(DatabaseService.getSampleData(30));
-                    }
-                }, 2000);
+                count++;
+                if (count < 4) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            adapter.addAll(DatabaseService.getSampleData(30));
+                        }
+                    }, 2000);
+                } else {
+                    adapter.setLoadMore(false);
+                }
             }
-        });
+        };
+        recyclerView.addOnScrollListener(listener);
+        adapter.setItems(DatabaseService.getSampleData(40));
         adapter.setLoadMore(true);
     }
 
@@ -41,6 +51,20 @@ public class LoadMoreActivity extends RecyclerViewActivity<Analog, LoadMoreAdapt
     @Override
     protected LoadMoreAdapter createAdapter() {
         return new LoadMoreAdapter(this);
+    }
+
+    @Override
+    public void onRefresh() {
+        count = 0;
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                listener.resetState();
+                adapter.replaceAll(DatabaseService.getSampleData(30));
+                adapter.setLoadMore(true);
+                setRefreshing(false);
+            }
+        }, 2000);
     }
 
     @Override
