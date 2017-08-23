@@ -123,7 +123,7 @@ public class LeftTextAdapterDelegate extends AdapterDelegate<Chat, PowerViewHold
 其它几个类同。
 - Animation 动画([AnimationActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/animation/AnimationActivity.java))
 - Sticky Headers 粘性头部 ([StickyHeadersActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/stickyheaders/StickyHeadersActivity.java))
-使用的是第三方库
+<br>使用的是第三方库
 - Staggered 瀑布流([StaggeredActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/staggered/StaggeredActivity.java))
 - Single Select 单选([SelectActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/select/SelectActivity.java))
 ``` Java
@@ -141,31 +141,30 @@ adapter.setMode(MODE_MULTI);
 - Load More 加载更多([LoadMoreActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/loadmore/LoadMoreActivity.java))
 ``` Java
 listener = new EndlessRecyclerViewScrollListener((LinearLayoutManager) recyclerView.getLayoutManager(), adapter) {
-            @Override
-            public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
-                count++;
-                if (count < 6) {
-                    adapter.setLoadMore(false);
-                    new Handler().postDelayed(new Runnable() {
-                        @Override
-                        public void run() {
-                            adapter.addAll(DatabaseService.getSampleData(30));
-                            adapter.setLoadMore(true);
-                        }
-                    }, 2000);
-                } else {
-                    adapter.setLoadMore(false);
+    @Override
+    public void onLoadMore(int page, int totalItemsCount, RecyclerView view) {
+        count++;
+        if (count < 6) {
+            adapter.setLoadMore(false);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    adapter.addAll(DatabaseService.getSampleData(30));
+                    adapter.setLoadMore(true);
                 }
-            }
-        };
-        recyclerView.addOnScrollListener(listener);
-        adapter.setItems(DatabaseService.getSampleData(40));
-        adapter.setLoadMore(true);
+            }, 2000);
+        } else {
+            adapter.setLoadMore(false);
+        }
+    }
+};
+recyclerView.addOnScrollListener(listener);
+adapter.setItems(DatabaseService.getSampleData(40));
+adapter.setLoadMore(true);
 重置
 listener.resetState();
 adapter.setItems(DatabaseService.getSampleData(30));
 adapter.setLoadMore(true);
-setRefreshing(false);
 ```
 - Header And Footer 头部和尾部([HeaderFooterActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/headerfooter/HeaderFooterActivity.java))
 ``` Java
@@ -262,16 +261,16 @@ public class HeaderFooterAdapter extends SingleAdapter<Analog, BaseViewHolder> {
 拖拽和滑动删除和一种item的一样，ViewHolder继承的是DragSwipeViewHolder，
 ``` Java
 ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(adapter, false, true) {
-            @Override
-            public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
-                super.onSelectedChanged(viewHolder, actionState);
-                swiprefresh.setEnabled(actionState == ItemTouchHelper.ACTION_STATE_IDLE);
-            }
-        };
-        mItemTouchHelper = new ItemTouchHelper(callback);
-        mItemTouchHelper.attachToRecyclerView(recyclerView);
+    @Override
+    public void onSelectedChanged(RecyclerView.ViewHolder viewHolder, int actionState) {
+        super.onSelectedChanged(viewHolder, actionState);
+        swiprefresh.setEnabled(actionState == ItemTouchHelper.ACTION_STATE_IDLE);
+    }
+};
+mItemTouchHelper = new ItemTouchHelper(callback);
+mItemTouchHelper.attachToRecyclerView(recyclerView);
 implements OnStartDragListener并
-@Override
+    @Override
     public void onStartDrag(RecyclerView.ViewHolder viewHolder) {
         mItemTouchHelper.startDrag(viewHolder);
     }
