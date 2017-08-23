@@ -251,14 +251,12 @@ public class HeaderFooterAdapter extends SingleAdapter<Analog, BaseViewHolder> {
 }
 ```
 - Header And Footer 头部和尾部([HeaderFooterActivity2](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/headerfooter/HeaderFooterActivity2.java))
-``` Java
-和多个复杂的写法一样
-```
+<br>和多个复杂的写法一样
 - Expandable 分组的伸缩([ExpandableActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/expandable/ExpandableActivity.java))
-分组的伸缩写法和多个复杂的写法一样，不过item中的ViewHolder继承有点变化，如下：
-展开的头部继承ParentExpandViewHolder，可以伸缩的部分继承ChildExpandViewHolder。
+<br>分组的伸缩写法和多个复杂的写法一样，不过item中的ViewHolder继承有点变化，如下：
+<br>展开的头部继承ParentExpandViewHolder，可以伸缩的部分继承ChildExpandViewHolder。
 - Drag And Swipe 拖拽和滑动删除([DragSwipeActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/dragswipe/DragSwipeActivity.java))
-拖拽和滑动删除和一种item的一样，ViewHolder继承的是DragSwipeViewHolder，
+<br>拖拽和滑动删除和一种item的一样，ViewHolder继承的是DragSwipeViewHolder，
 ``` Java
 ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(adapter, false, true) {
     @Override
