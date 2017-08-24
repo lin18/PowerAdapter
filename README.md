@@ -122,9 +122,11 @@ public class LeftTextAdapterDelegate extends AdapterDelegate<Chat, PowerViewHold
 ```
 其它几个类同。
 - Animation 动画([AnimationActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/animation/AnimationActivity.java))
+<br>使用的是第三方库，看例子
 - Sticky Headers 粘性头部 ([StickyHeadersActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/stickyheaders/StickyHeadersActivity.java))
-<br>使用的是第三方库
+<br>使用的是第三方库，看例子
 - Staggered 瀑布流([StaggeredActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/staggered/StaggeredActivity.java))
+<br>使用StaggeredGridLayoutManager，看例子
 - Single Select 单选([SelectActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/select/SelectActivity.java))
 ``` Java
 adapter重写
