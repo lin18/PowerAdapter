@@ -12,7 +12,7 @@ Adapter for RecyclerView
 compile 'com.lin:poweradapter:1.3@aar'
 ```
 
-= _Single 一种Item([SingleActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/single/SingleActivity.java))_
+### Single 一种Item([SingleActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/single/SingleActivity.java))
 ``` Java
 public class AnalogAdapter extends SingleAdapter<Analog, AnalogAdapter.ChildViewHolder> {
 
@@ -69,7 +69,7 @@ public boolean onItemLongClick(View v, int position) {
     return true;
 }
 ```
-- *Multi 多种Item([MultiActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/multi/MultiActivity.java))*
+### Multi 多种Item([MultiActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/multi/MultiActivity.java))
 ``` Java
 public class ChatAdapter extends MultiAdapter<Chat, PowerViewHolder> {
 
@@ -121,13 +121,13 @@ public class LeftTextAdapterDelegate extends AdapterDelegate<Chat, PowerViewHold
 }
 ```
 其它几个类同。
-- *Animation 动画([AnimationActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/animation/AnimationActivity.java))*
+### Animation 动画([AnimationActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/animation/AnimationActivity.java))
 <br>使用的是第三方库，看例子
-- *Sticky Headers 粘性头部 ([StickyHeadersActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/stickyheaders/StickyHeadersActivity.java))*
+### Sticky Headers 粘性头部 ([StickyHeadersActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/stickyheaders/StickyHeadersActivity.java))
 <br>使用的是第三方库，看例子
-- *Staggered 瀑布流([StaggeredActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/staggered/StaggeredActivity.java))*
+### Staggered 瀑布流([StaggeredActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/staggered/StaggeredActivity.java))
 <br>使用StaggeredGridLayoutManager，看例子
-- *Single Select 单选([SelectActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/select/SelectActivity.java))*
+### Single Select 单选([SelectActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/select/SelectActivity.java))
 ``` Java
 adapter重写
 @Override
@@ -136,11 +136,11 @@ public boolean isSelectable(@IntRange(from = 0) int position) {
 }
 adapter.setMode(MODE_SINGLE);
 ```
-- *Multi Select 多选([MultiSelectActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/select/MultiSelectActivity.java))*
+### Multi Select 多选([MultiSelectActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/select/MultiSelectActivity.java))
 ``` Java
 adapter.setMode(MODE_MULTI);
 ```
-- *Load More 加载更多([LoadMoreActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/loadmore/LoadMoreActivity.java))*
+### Load More 加载更多([LoadMoreActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/loadmore/LoadMoreActivity.java))
 ``` Java
 listener = new EndlessRecyclerViewScrollListener((LinearLayoutManager) recyclerView.getLayoutManager(), adapter) {
     @Override
@@ -168,7 +168,7 @@ listener.resetState();
 adapter.setItems(DatabaseService.getSampleData(30));
 adapter.setLoadMore(true);
 ```
-- *Header And Footer 头部和尾部([HeaderFooterActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/headerfooter/HeaderFooterActivity.java))*
+### Header And Footer 头部和尾部([HeaderFooterActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/headerfooter/HeaderFooterActivity.java))
 ``` Java
 public class HeaderFooterAdapter extends SingleAdapter<Analog, BaseViewHolder> {
 
@@ -252,12 +252,12 @@ public class HeaderFooterAdapter extends SingleAdapter<Analog, BaseViewHolder> {
     }
 }
 ```
-- *Header And Footer 头部和尾部([HeaderFooterActivity2](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/headerfooter/HeaderFooterActivity2.java))*
+### Header And Footer 头部和尾部([HeaderFooterActivity2](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/headerfooter/HeaderFooterActivity2.java))
 <br>和多个复杂的写法一样
-- *Expandable 分组的伸缩([ExpandableActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/expandable/ExpandableActivity.java))*
+### Expandable 分组的伸缩([ExpandableActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/expandable/ExpandableActivity.java))
 <br>分组的伸缩写法和多个复杂的写法一样，不过item中的ViewHolder继承有点变化，如下：
 <br>展开的头部继承ParentExpandViewHolder，可以伸缩的部分继承ChildExpandViewHolder。
-- *Drag And Swipe 拖拽和滑动删除([DragSwipeActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/dragswipe/DragSwipeActivity.java))*
+### Drag And Swipe 拖拽和滑动删除([DragSwipeActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/dragswipe/DragSwipeActivity.java))
 <br>拖拽和滑动删除和一种item的一样，ViewHolder继承的是DragSwipeViewHolder，
 ``` Java
 ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(adapter, false, true) {
