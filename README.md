@@ -12,7 +12,7 @@ Adapter for RecyclerView
 compile 'com.lin:poweradapter:1.3@aar'
 ```
 
-= Single 一种Item([SingleActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/single/SingleActivity.java))
+= _Single 一种Item([SingleActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/single/SingleActivity.java))_
 ``` Java
 public class AnalogAdapter extends SingleAdapter<Analog, AnalogAdapter.ChildViewHolder> {
 
