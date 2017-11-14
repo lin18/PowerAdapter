@@ -59,6 +59,13 @@ public abstract class RecyclerViewActivity<E, B extends SingleAdapter> extends B
         super.onCreate(savedInstanceState);
     }
 
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        overridePendingTransition(R.anim.swipeback_stack_to_front,
+                R.anim.swipeback_stack_right_out);
+    }
+
     protected void configure() {
         configure(new SpaceItemDecoration(this, R.drawable.divider));
     }

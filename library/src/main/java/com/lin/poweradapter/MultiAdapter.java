@@ -41,7 +41,7 @@ public abstract class MultiAdapter<T, VH extends PowerViewHolder> extends Single
     @CallSuper
     @Override
     public void onBindVHolder(VH holder, int position) {
-        delegatesManager.onBindViewHolder(getItem(position), position, holder, null);
+        delegatesManager.onBindViewHolder(getItem(position), position, isSelected(position), holder, null);
     }
 
     @Override
@@ -54,7 +54,7 @@ public abstract class MultiAdapter<T, VH extends PowerViewHolder> extends Single
 
         } else {
             setListener(holder, position);
-            delegatesManager.onBindViewHolder(getItem(position), position, holder, payloads);
+            delegatesManager.onBindViewHolder(getItem(position), position, isSelected(position), holder, payloads);
         }
     }
 

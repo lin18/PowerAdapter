@@ -398,6 +398,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
     @CallSuper
     public void clear() {
         dataFinishedLoading();
+        clearSelection();
         items.clear();
         notifyDataSetChanged();
     }

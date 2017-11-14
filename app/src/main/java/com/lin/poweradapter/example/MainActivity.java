@@ -18,6 +18,7 @@ import com.lin.poweradapter.example.select.SelectActivity;
 import com.lin.poweradapter.example.single.SingleActivity;
 import com.lin.poweradapter.example.staggered.StaggeredActivity;
 import com.lin.poweradapter.example.stickyheaders.StickyHeadersActivity;
+import com.lin.poweradapter.example.timeline.TimeLineActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class MainActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {
             SingleActivity.class.getSimpleName(),
             MultiActivity.class.getSimpleName(),
             AnimationActivity.class.getSimpleName(),
+            TimeLineActivity.class.getSimpleName(),
             StickyHeadersActivity.class.getSimpleName(),
             StaggeredActivity.class.getSimpleName(),
             SelectActivity.class.getSimpleName(),
@@ -44,6 +46,7 @@ public class MainActivity extends RecyclerViewActivity<Analog, AnalogAdapter> {
             SingleActivity.class,
             MultiActivity.class,
             AnimationActivity.class,
+            TimeLineActivity.class,
             StickyHeadersActivity.class,
             StaggeredActivity.class,
             SelectActivity.class,

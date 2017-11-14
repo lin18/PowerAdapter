@@ -9,7 +9,7 @@ Adapter for RecyclerView
 
 # Use
 ```gradle
-compile 'com.lin:poweradapter:1.3@aar'
+compile 'com.lin:poweradapter:1.5@aar'
 ```
 
 - ### Single 一种Item([SingleActivity](https://github.com/lin18/PowerAdapter/blob/master/app/src/main/java/com/lin/poweradapter/example/single/SingleActivity.java))

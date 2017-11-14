@@ -67,15 +67,10 @@ public class RecipeAdapterDelegate extends AdapterDelegate<IExpand, PowerViewHol
         }
 
         @Override
-        public void setExpanded(boolean expanded) {
-            super.setExpanded(expanded);
-            arrow.setRotation(expanded ? ROTATED_POSITION : INITIAL_POSITION);
-        }
-
-        @Override
         public void onExpansionToggled(boolean expanded) {
             super.onExpansionToggled(expanded);
-            RotateAnimation rotateAnimation = new RotateAnimation(expanded ? ROTATED_POSITION : -1 * ROTATED_POSITION,
+            arrow.setRotation(!expanded ? ROTATED_POSITION : INITIAL_POSITION);
+            RotateAnimation rotateAnimation = new RotateAnimation(!expanded ? ROTATED_POSITION : -1 * ROTATED_POSITION,
                     INITIAL_POSITION,
                     RotateAnimation.RELATIVE_TO_SELF, 0.5f,
                     RotateAnimation.RELATIVE_TO_SELF, 0.5f);

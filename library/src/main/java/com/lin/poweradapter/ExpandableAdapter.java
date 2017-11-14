@@ -5,6 +5,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.UiThread;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.lin.poweradapter.ParentExpandViewHolder.ParentViewHolderExpandCollapseListener;
 import com.lin.poweradapter.model.Parent;
@@ -13,6 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 /**
  *
@@ -25,7 +28,7 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
     private List<RecyclerView> mAttachedRecyclerViewPool;
     @NonNull
     protected List<P> mAllItems;
-    private Map<P, Boolean> mExpansionStateMap;
+    private List<P> mExpansionStateMap;
     @Nullable
     private ExpandCollapseListener mExpandCollapseListener;
 
@@ -47,7 +50,15 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
     private void init(@NonNull List<T> items) {
         mAllItems = (List<P>) items;
         mAttachedRecyclerViewPool = new ArrayList<>();
-        mExpansionStateMap = new HashMap<>(items.size());
+        mExpansionStateMap = new ArrayList<>();
+    }
+
+    @Override
+    public void clear() {
+        collapseAllParents();
+        mAllItems.clear();
+        mExpansionStateMap.clear();
+        super.clear();
     }
 
     @Override
@@ -70,28 +81,28 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
 
         } else {
             bind(holder, position);
-            delegatesManager.onBindViewHolder(getItem(position), position, holder, payloads);
+            delegatesManager.onBindViewHolder(getItem(position), position, isSelected(position), holder, payloads);
         }
     }
 
     private void bind(@NonNull final VH holder, final int position) {
         if (holder instanceof ParentExpandViewHolder) {
             final ParentExpandViewHolder parentViewHolder = (ParentExpandViewHolder) holder;
-            if (parentViewHolder.shouldItemViewClickToggleExpansion()) {
-                parentViewHolder.setMainItemClickToExpand();
-            }
-            parentViewHolder.mParent = (Parent) getItem(position);
+            parentViewHolder.mParent = (P) getItem(position);
             parentViewHolder.mExpandableAdapter = this;
-            parentViewHolder.setParentViewHolderExpandCollapseListener(new ParentViewHolderExpandCollapseListener() {
-
+            parentViewHolder.getContentView().setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onParentExpanded(final int flatParentPosition) {
-                    updateExpandedParent(flatParentPosition, true);
-                }
-
-                @Override
-                public void onParentCollapsed(int flatParentPosition) {
-                    updateCollapsedParent(flatParentPosition, true);
+                public void onClick(View v) {
+                    final int index = holder.getAdapterPosition();
+                    if (isExpanded(index)) {
+                        setExpanded(index, false);
+                        parentViewHolder.collapseView();
+                        updateCollapsedParent(index, true);
+                    } else {
+                        setExpanded(index, true);
+                        parentViewHolder.expandView();
+                        updateExpandedParent(index, true);
+                    }
                 }
             });
         } else if (holder instanceof ChildExpandViewHolder){
@@ -126,7 +137,7 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
     @UiThread
     private void updateExpandedParent(int position, boolean expansionTriggeredByListItemClick) {
         final P parent = (P) getItem(position);
-        mExpansionStateMap.put(parent, true);
+        mExpansionStateMap.add(parent);
 
         final List<C> childList = parent.getChildList();
         if (childList != null) {
@@ -146,7 +157,7 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
     @UiThread
     private void updateCollapsedParent(int position, boolean collapseTriggeredByListItemClick) {
         final P parent = (P) getItem(position);
-        mExpansionStateMap.put(parent, false);
+        mExpansionStateMap.remove(parent);
 
         final List<C> childList = parent.getChildList();
         if (childList != null) {
@@ -227,8 +238,8 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
             final VH holder = (VH) recyclerView.findViewHolderForAdapterPosition(position);
             if (holder != null && holder instanceof ParentExpandViewHolder) {
                 final ParentExpandViewHolder viewHolder = (ParentExpandViewHolder) holder;
-                if (!viewHolder.isExpanded()) {
-                    viewHolder.setExpanded(true);
+                if (!isExpanded(position)) {
+                    setExpanded(position, true);
                     viewHolder.onExpansionToggled(false);
                 }
                 updateExpandedParent(position, false);
@@ -244,7 +255,7 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
     @UiThread
     public void collapseParent(int parentPosition) {
         if (parentPosition < 0 || parentPosition >= getItemCount()) return;
-        collapseParent(parentPosition);
+        collapseViews(parentPosition);
     }
 
     @UiThread
@@ -269,13 +280,31 @@ public abstract class ExpandableAdapter<T, P extends Parent<C>, C, VH extends Po
             final VH holder = (VH) recyclerView.findViewHolderForAdapterPosition(position);
             if (holder != null && holder instanceof ParentExpandViewHolder) {
                 final ParentExpandViewHolder viewHolder = (ParentExpandViewHolder) holder;
-                if (viewHolder.isExpanded()) {
-                    viewHolder.setExpanded(false);
+                if (isExpanded(position)) {
+                    setExpanded(position, false);
                     viewHolder.onExpansionToggled(true);
                 }
                 updateExpandedParent(position, false);
             }
         }
+    }
+
+    public boolean setExpanded(@IntRange(from = 0) int position, boolean state) {
+        if (getItem(position) instanceof Parent) {
+            if (state)
+                mExpansionStateMap.add((P) getItem(position));
+            else
+                mExpansionStateMap.remove((P) getItem(position));
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isExpanded(@IntRange(from = 0) int position) {
+        if (getItem(position) instanceof Parent) {
+            return mExpansionStateMap.contains((P) getItem(position));
+        }
+        return false;
     }
 
     public interface ExpandCollapseListener {

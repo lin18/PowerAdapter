@@ -18,6 +18,9 @@ public abstract class AdapterDelegate<T, VH extends PowerViewHolder> {
   protected abstract void onBindViewHolder(@NonNull T item, int position,
                                            @NonNull VH holder, @NonNull List<Object> payloads);
 
+  protected void setSelecttion(@NonNull VH holder, boolean checked) {
+  }
+
   protected void onViewRecycled(@NonNull VH viewHolder) {
   }
 

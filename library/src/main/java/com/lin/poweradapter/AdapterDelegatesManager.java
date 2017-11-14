@@ -121,7 +121,7 @@ public class AdapterDelegatesManager<T, VH extends PowerViewHolder> {
     return vh;
   }
 
-  public void onBindViewHolder(@NonNull T items, int position,
+  public void onBindViewHolder(@NonNull T items, int position, boolean checked,
                                @NonNull VH viewHolder, List payloads) {
 
     AdapterDelegate<T, VH> delegate = getDelegateForViewType(viewHolder.getItemViewType());
@@ -133,11 +133,12 @@ public class AdapterDelegatesManager<T, VH extends PowerViewHolder> {
     }
     delegate.onBindViewHolder(items, position, viewHolder,
         payloads != null ? payloads : PAYLOADS_EMPTY_LIST);
+    delegate.setSelecttion(viewHolder, checked);
   }
 
-  public void onBindViewHolder(@NonNull T items, int position,
+  public void onBindViewHolder(@NonNull T items, int position, boolean checked,
                                @NonNull VH viewHolder) {
-    onBindViewHolder(items, position, viewHolder, PAYLOADS_EMPTY_LIST);
+    onBindViewHolder(items, position, checked, viewHolder, PAYLOADS_EMPTY_LIST);
   }
 
   public void onViewRecycled(@NonNull VH viewHolder) {
