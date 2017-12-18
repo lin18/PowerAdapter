@@ -310,7 +310,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
     @CallSuper
     public void remove(@IntRange(from = 0) int position) {
         dataFinishedLoading();
-        items.remove(position);
+        items.remove(showHeader ? position - 1 : position);
         notifyItemRemoved(position);
     }
 
