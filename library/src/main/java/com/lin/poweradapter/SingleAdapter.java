@@ -327,9 +327,9 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
     @CallSuper
     public void addAll(@NonNull List<T> elem) {
         dataFinishedLoading();
-        final int size = items.size();
+        final int size = getItemCount();
         items.addAll(elem);
-        notifyItemRangeInserted(size, items.size());
+        notifyItemRangeInserted(size, getItemCount());
     }
 
     @UiThread
@@ -345,7 +345,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
     public void addItem(@NonNull T elem) {
         dataFinishedLoading();
         items.add(elem);
-        notifyItemInserted(items.size());
+        notifyItemInserted(getItemCount());
     }
 
     @UiThread
