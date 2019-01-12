@@ -40,7 +40,7 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
     @NonNull
     private List<T> items;
 
-    public SingleAdapter(@NonNull List<T> items) {
+    public SingleAdapter(@Nullable List<T> items) {
         this(null, items);
     }
 
@@ -48,9 +48,9 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
         this(listener, new ArrayList<T>());
     }
 
-    public SingleAdapter(@Nullable Object listener, @NonNull List<T> items) {
+    public SingleAdapter(@Nullable Object listener, @Nullable List<T> items) {
         super();
-        this.items = items;
+        this.items = items == null ? new ArrayList<T>() : items;
         addListener(listener);
     }
 
@@ -289,9 +289,9 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
 
     @UiThread
     @CallSuper
-    public void setItems(@NonNull List<T> items) {
+    public void setItems(@Nullable List<T> items) {
         dataFinishedLoading();
-        this.items = items;
+        this.items = items == null ? new ArrayList<T>() : items;
         notifyDataSetChanged();
     }
 
@@ -316,7 +316,8 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
 
     @UiThread
     @CallSuper
-    public void replaceAll(@NonNull List<T> elem) {
+    public void replaceAll(@Nullable List<T> elem) {
+        if (elem == null) return;
         dataFinishedLoading();
         items.clear();
         items.addAll(elem);
@@ -325,19 +326,21 @@ public abstract class SingleAdapter<T, VH extends PowerViewHolder> extends Anima
 
     @UiThread
     @CallSuper
-    public void addAll(@NonNull List<T> elem) {
+    public void addAll(@Nullable List<T> elem) {
+        if (elem == null) return;
         dataFinishedLoading();
         final int size = getItemCount();
         items.addAll(elem);
-        notifyItemRangeInserted(size, getItemCount());
+        notifyItemRangeInserted(size, elem.size());
     }
 
     @UiThread
     @CallSuper
-    public void addItems(@IntRange(from = 0) int position, @NonNull List<T> data) {
+    public void addItems(@IntRange(from = 0) int position, @Nullable List<T> elem) {
+        if (elem == null) return;
         dataFinishedLoading();
-        items.addAll(position, data);
-        notifyItemRangeInserted(position, data.size());
+        items.addAll(position, elem);
+        notifyItemRangeInserted(position, elem.size());
     }
 
     @UiThread
